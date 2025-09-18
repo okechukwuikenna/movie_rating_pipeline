@@ -14,10 +14,9 @@ COPY sql/ sql/
 COPY data/ data/
 COPY run_pipeline.sh .
 COPY cronjob /etc/cron.d/run_pipeline_cron
-COPY wait-for.sh /app/wait-for.sh
 
-RUN chmod +x run_pipeline.sh /app/wait-for.sh && \
-    chmod 0644 /etc/cron.d/run_pipeline_cron && \
+RUN chmod 0644 /etc/cron.d/run_pipeline_cron && \
     crontab /etc/cron.d/run_pipeline_cron
 
 CMD ["cron", "-f"]
+
