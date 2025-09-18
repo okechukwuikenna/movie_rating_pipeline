@@ -4,7 +4,7 @@ services:
     container_name: db
     environment:
       POSTGRES_USER: iokechukwu
-      POSTGRES_PASSWORD: ikenna004
+      POSTGRES_PASSWORD: ******
       POSTGRES_DB: data_engineering
     ports:
       - "5432:5432"
@@ -21,10 +21,11 @@ services:
       DB_PORT: 5432
       DB_NAME: data_engineering
       DB_USER: iokechukwu
-      DB_PASS: ikenna004
+      DB_PASS: ******
     volumes:
       - .:/app
     working_dir: /app
 
 volumes:
   postgres_data:
+
