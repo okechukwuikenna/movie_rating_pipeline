@@ -125,6 +125,8 @@ docker exec -it db psql -U iokechukwu -d data_engineering
 ### License
 
 This project is for internal use at JordanStream and educational purposes.
+N/B. I starred the password for security reasons for my db
 
 ```
+
 
