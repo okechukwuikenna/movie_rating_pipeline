@@ -8,7 +8,7 @@ DB_HOST = os.environ.get("DB_HOST", "db")
 DB_PORT = int(os.environ.get("DB_PORT", 5432))
 DB_NAME = os.environ.get("DB_NAME", "data_engineering")
 DB_USER = os.environ.get("DB_USER", "iokechukwu")
-DB_PASS = os.environ.get("DB_PASS", "ikenna004")
+DB_PASS = os.environ.get("DB_PASS", "*****")
 
 # 1. Load raw CSV
 df = pd.read_csv("data/netflix_titles.csv")
@@ -81,3 +81,4 @@ cursor.close()
 conn.close()
 
 print("Data preprocessing and insertion completed successfully!")
+
