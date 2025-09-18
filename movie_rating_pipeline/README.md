@@ -1,4 +1,4 @@
-```markdown
+
 # Movie Ratings Data Pipeline
 
 ## Project Overview
@@ -29,70 +29,65 @@ This allows the product team at JordanStream to analyze customer preferences and
 
 ## Directory Structure
 
-```
-
-movie\_rating\_pipeline/
-│
+```text
+movie_rating_pipeline/
 ├─ data/
-│   └─ netflix\_titles.csv
-│
+│  └─ netflix_titles.csv
 ├─ scripts/
-│   └─ preprocessing.py                # Combined preprocessing + DB load
-│
+│  └─ preprocessing.py   # Combined preprocessing + DB load
 ├─ sql/
-│   ├─ create\_tables.sql   
-│   └─ queries.sql           
-│
-├─ run\_pipeline.sh
-├─ wait-for.sh
+│  ├─ create_tables.sql
+│  └─ queries.sql
+├─ run_pipeline.sh
 ├─ Dockerfile
 ├─ docker-compose.yml
 ├─ requirements.txt
 ├─ cronjob
 └─ README.md
-
 ````
 
 ---
 
 ## Prerequisites
 
-- Ubuntu / WSL  
-- Docker  
-- Docker Compose  
-- Python 3.10+ (inside Docker container)  
-- PostgreSQL client (inside Docker container)  
+* Ubuntu / WSL
+* Docker
+* Docker Compose
+* Python 3.10+ (inside Docker container)
+* PostgreSQL client (inside Docker container)
 
 ---
 
 ## Setup Instructions
 
-1. **Navigate to project directory**
+### 1. Navigate to project directory
 
 ```bash
 cd /mnt/c/Users/IOkechukwu/movie_rating_pipeline
-````
+```
 
-2. **Build Docker containers**
+### 2. Build Docker containers
 
 ```bash
 docker compose build
 ```
 
-3. **Start containers**
+### 3. Start containers
 
 ```bash
 docker compose up -d
 ```
+
+**Containers:**
 
 * `db`: PostgreSQL database
 * `python_container`: Python container with preprocessing and cron
 
 ---
 
-## Manual Pipeline Execution
+### Manual Pipeline Execution
 
-To run the Preprocessing pipeline manually:
+To run the preprocessing pipeline manually:
 
 ```bash
 docker exec -it python_container ./run_pipeline.sh
@@ -112,14 +107,14 @@ docker exec -it db psql -U iokechukwu -d data_engineering
 
 ---
 
-## Automatic Pipeline (Cron)
+### Automatic Pipeline (Cron)
 
-* Cron runs inside the Python container every 10 minutes (configured in `cronjob`)
-* Pipeline logs are written to `/app/pipeline.log` inside the container
+* Cron runs inside the Python container every 10 minutes (configured in `cronjob`).
+* Pipeline logs are written to `/app/pipeline.log` inside the container.
 
 ---
 
-## Notes
+### Notes
 
 * The preprocessing script `preprocessing.py` handles both preprocessing and loading to the database.
 * Table creation is automatic; no need to run `create_tables.sql`.
@@ -127,8 +122,9 @@ docker exec -it db psql -U iokechukwu -d data_engineering
 
 ---
 
-## License
+### License
 
 This project is for internal use at JordanStream and educational purposes.
 
 ```
+
