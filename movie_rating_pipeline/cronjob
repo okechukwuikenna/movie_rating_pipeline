@@ -1,1 +1,2 @@
-*/10 * * * * /app/run_pipeline.sh >> /app/pipeline.log 2>&1
+# Run pipeline every 10 minutes
+*/10 * * * * root /app/run_pipeline.sh >> /app/pipeline.log 2>&1
