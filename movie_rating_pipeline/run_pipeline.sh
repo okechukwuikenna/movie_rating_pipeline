@@ -3,9 +3,6 @@ set -e
 
 echo "Starting pipeline..."
 
-# Wait for PostgreSQL
-/app/wait-for.sh "$DB_HOST" "$DB_PORT"
-
 # Run combined ETL
 python /app/scripts/preprocessing.py
 
